@@ -1,0 +1,3 @@
+[submodule "protector"]
+	path = protector
+	url = https://github.com/trailofbits/mcp-context-protector
