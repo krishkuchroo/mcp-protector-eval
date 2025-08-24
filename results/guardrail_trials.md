@@ -72,3 +72,23 @@
 - Quarantine ID: 14cc5acc-2a40-4ee5-9ba6-e954ad73bf34
 - Reason: `asyncio.run() cannot be called from a running event loop`
 
+
+## Filesystem + LlamaFirewall (Part 5.4) — Review & Release flow
+
+### Reviewed + Released (false positive)
+- Tool: `get_file_info`
+- Path: `/private/tmp/allowed/ok.txt`
+- Quarantine ID: `ae3c2f58-d498-43cb-b412-bfc3007d0764`
+- Reason: `asyncio.run() cannot be called from a running event loop`
+- Action: **released** ✅
+- Outcome: Metadata returned to the client after human approval.
+
+### Reviewed + Released (demo of manual override on risky content)
+- Tool: `read_text_file`
+- Path: `/private/tmp/allowed/prompt_injection.txt`
+- Quarantine ID: `14cc5acc-2a40-4ee5-9ba6-e954ad73bf34`
+- Reason: `asyncio.run() cannot be called from a running event loop`
+- Action: **released** ⚠️ (demo only)
+- Outcome: Content was delivered after manual override.
+- **Note:** Releasing quarantined *malicious* content is **not recommended** in real use; done here to demonstrate the override capability.
+
