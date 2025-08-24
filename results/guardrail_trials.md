@@ -64,3 +64,11 @@
 **Note:** Inspector + LlamaFirewall has a known event-loop issue that can falsely flag safe metadata responses with
 `asyncio.run() cannot be called from a running event loop`. Baseline (guardrails OFF) confirms metadata tools work; the risky read is correctly quarantined.
 
+
+### Guardrails ON (risky content read — correctly blocked)
+- Tool: `read_text_file`
+- Path: `/private/tmp/allowed/prompt_injection.txt`
+- Result: **quarantined** ✅
+- Quarantine ID: 14cc5acc-2a40-4ee5-9ba6-e954ad73bf34
+- Reason: `asyncio.run() cannot be called from a running event loop`
+
